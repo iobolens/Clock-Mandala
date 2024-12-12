@@ -1,0 +1,171 @@
+:root {
+    --bg-color: #1a1a1a;
+    --card-bg: #242424;
+    --text-color: #ffffff;
+    --hour-color: rgb(220, 20, 20);
+    --minute-color: rgb(255, 120, 20);
+    --second-color: rgb(255, 200, 20);
+    --input-bg: #333333;
+    --button-hover: #444444;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.card {
+    background-color: transparent;
+    width: 95%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-top: 0;
+}
+
+.card-header {
+    text-align: center;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+}
+
+.elapsed-time {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-family: 'Courier New', monospace;
+}
+
+.timer-input {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.timer-input input {
+    width: 60px;
+    background: var(--input-bg);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 8px;
+    color: var(--text-color);
+    font-size: 1.2em;
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+.timer-input input:focus {
+    outline: none;
+    border-color: var(--minute-color);
+}
+
+.timer-input span {
+    font-size: 1.2em;
+    opacity: 0.8;
+}
+
+.btn {
+    background: var(--input-bg);
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.slider-container p {
+    margin: 0;
+}
+
+.visualization-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 600px;
+    margin: 0 auto;
+    position: relative;
+    background-color: transparent;
+    overflow: visible;
+    pointer-events: none;
+}
+
+canvas {
+    width: 1200px;
+    height: 1200px;
+    background-color: transparent;
+    position: relative;
+    top: -300px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: auto;
+}
+
+.decay-key {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.key-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.key-color {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.key-color.hours-key { background: var(--hour-color); }
+.key-color.minutes-key { background: var(--minute-color); }
+.key-color.seconds-key { background: var(--second-color); }
+
+/* Make sure controls are clickable */
+.card-header, .controls {
+    position: relative;
+    z-index: 10;
+}
